@@ -26,8 +26,10 @@ Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) e o [Ya
 
 2. Clone o repositório:
 
-- cd test_smart_system
+- https://github.com/LeoGraciano/test_smart_system
 
 3. Inicie os serviços:
-   -docker compose up -d
-   Isso iniciará o banco de dados, servidor backend e o frontend simultaneamente.
+
+- cd test_smart_system
+  -docker compose up -d
+  Isso iniciará o banco de dados, servidor backend e o frontend simultaneamente.
