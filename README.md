@@ -6,10 +6,10 @@ O Smart System é uma plataforma inovadora que oferece soluções inteligentes p
 
 ## Tecnologias Utilizadas
 
-- Backend: [Node.js, Django, etc.]
-- Frontend: [React, Angular, Vue.js, etc.]
-- Banco de Dados: [MySQL, PostgreSQL, MongoDB, etc.]
-- Ferramentas: [Docker, Kubernetes, Jenkins, etc.]
+- Backend: [Node.js]
+- Frontend: [React]
+- Banco de Dados: [MySQL]
+- Ferramentas: [Docker]
 
 ## Como Instalar e Rodar Localmente
 
@@ -19,4 +19,15 @@ Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) e o [Ya
 
 ### Passo a Passo
 
-1. Clone o repositório:
+1. Instale as dependências:
+
+- docker;
+- docker compose;
+
+2. Clone o repositório:
+
+- cd test_smart_system
+
+3. Inicie os serviços:
+   -docker compose up -d
+   Isso iniciará o banco de dados, servidor backend e o frontend simultaneamente.
