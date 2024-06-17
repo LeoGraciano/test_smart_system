@@ -1,0 +1,68 @@
+version: "3.8"
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    volumes:
+      - ./backend:/app
+    working_dir: /app
+    command: sh -c "yarn install && prisma generate && prisma migrate deploy && yarn start"
+
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - MYSQL_HOST=db
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=docker
+      - MYSQL_DB=projectdb
+      - DATABASE_URL=mysql://root:docker@db:3306/projectdb
+      - BASE_URL_FRONTEND=http://frontend:5173
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
+    command: sh -c "yarn dev"
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_BACKEND_BASE_API_URL="http://localhost:3000/api/charts"
+
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: docker
+      MYSQL_DATABASE: projectdb
+    ports:
+      - "3306:3306"
+
+# Smart System
+
+## Sobre o Smart System
+
+O Smart System é uma plataforma inovadora que oferece soluções inteligentes para [descrever brevemente o que o sistema faz]. Nosso objetivo é [descrever o objetivo geral da empresa].
+
+## Tecnologias Utilizadas
+
+- Backend: [Node.js, Django, etc.]
+- Frontend: [React, Angular, Vue.js, etc.]
+- Banco de Dados: [MySQL, PostgreSQL, MongoDB, etc.]
+- Ferramentas: [Docker, Kubernetes, Jenkins, etc.]
+
+## Como Instalar e Rodar Localmente
+
+### Pré-requisitos
+
+Antes de começar, certifique-se de ter o [Node.js](https://nodejs.org/) e o [Yarn](https://yarnpkg.com/) instalados no seu computador.
+
+### Passo a Passo
+
+1. Clone o repositório:
+
+```

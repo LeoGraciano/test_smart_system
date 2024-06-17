@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+}
+
+select,
+input {
+  margin-left: 10px;
+}
