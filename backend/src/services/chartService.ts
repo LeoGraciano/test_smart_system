@@ -29,14 +29,12 @@ export const getChartDataService = async (
         return acc;
       }, {} as Record<string, number>);
 
-      // Retornar dados formatados para gráfico de pizza
       return {
         labels: Object.keys(pieData),
         datasets: [{ id: 1, label: "", data: Object.values(pieData) }],
       };
 
     case "line":
-      // Criar um conjunto de datas no intervalo especificado
       const dateSet = new Set<string>();
       const categoryMap = new Map<string, { [date: string]: number }>();
 
